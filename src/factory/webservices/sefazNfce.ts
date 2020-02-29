@@ -309,7 +309,7 @@ export abstract class SefazNFCe {
                 case 'DF':
                     return { urlChave: 'www.fazenda.df.gov.br/nfce/consulta', urlQRCode: 'http://www.fazenda.df.gov.br/nfce/qrcode?' };
                 case 'ES':
-                    return { urlChave: 'www.sefaz.es.gov.br/nfce/consulta', urlQRCode: 'http://homologacao.sefaz.es.gov.br/ConsultaNFCe/' };
+                    return { urlChave: 'www.sefaz.es.gov.br/nfce/consulta', urlQRCode: 'http://homologacao.sefaz.es.gov.br/ConsultaNFCe/qrcode.aspx?p=' };
                 case 'GO':
                     return { urlChave: 'www.sefaz.go.gov.br/nfce/consulta', urlQRCode: 'http://homolog.sefaz.go.gov.br/nfeweb/sites/nfce/danfeNFCe' };
                 case 'MA':

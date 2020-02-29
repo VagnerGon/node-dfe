@@ -37,7 +37,7 @@ export abstract class WebServiceHelper {
 
     public static getHttpsAgent(cert: any) {
         return new https.Agent({
-            //rejectUnauthorized: false,
+            rejectUnauthorized: false,
             //strictSSL: false,
             pfx: cert.pfx,
             passphrase: cert.password

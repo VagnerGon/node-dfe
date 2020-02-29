@@ -5,36 +5,37 @@ const signUtils = require('./lib/factory/signature');
 const XmlHelper = require('./lib/factory/xmlHelper');
 
 let cert = {
-    key: fs.readFileSync('C:\\cert\\newKey.key'),
-    pem: fs.readFileSync('C:\\cert\\test.pem'),
-    pfx: fs.readFileSync('C:\\cert\\certificado.pfx'),
-    password: fs.readFileSync('C:\\cert\\senha.txt')
+    key: fs.readFileSync('./server.key'),
+    // pem: fs.readFileSync('./key.pem'),
+    pem: fs.readFileSync('./cert.crt'),
+    pfx: fs.readFileSync('./certi.pfx'),
+    password: '123456'
 };
 
 let empresa = {
     razaoSocial: 'TESTE',
     nomeFantasia: 'TEST',
-    cnpj: '',
-    inscricaoEstadual: '',
-    inscricaoMunicipal: '',
+    cnpj: '27997447000214',
+    inscricaoEstadual: '083619925',
+    inscricaoMunicipal: '234534543',
     codRegimeTributario: '3',
     endereco: {
-        logradouro: 'Rua Teste',
-        numero: 123,
+        logradouro: 'AVENIDA BICANGA',
+        numero: 1,
         complemento: '',
-        bairro: 'Bairro Teste',
-        municipio: 'Cachoeirinha',
-        codMunicipio: '4303004',
-        uf: 'RS',
-        cUf: '43',
-        cep: '99999999',
+        bairro: 'BICANGA',
+        municipio: 'SERRA',
+        codMunicipio: '3205002',
+        uf: 'ES',
+        cUf: '32',
+        cep: '29164817',
         telefone: '999999999'
     },
     certificado: cert,
     idCSC: '1',
-    CSC: ''
+    CSC: '9FA3925C6C871DF1E0531F5FA00ADC2B'
 };
-
+// autenticacao eletronica: 1FFF30E240E0B1
 let responsavelTecnico = {
     cnpj: 'empresa teste',
     contato: 'teste',
@@ -59,8 +60,8 @@ let documento = {
     naturezaOperacao: 'VENDA',
     tipoDocumentoFiscal: '1',
     identificadorDestinoOperacao: '1',
-    codUF: '43',
-    codIbgeFatoGerador: '4303103',
+    codUF: '32',
+    codIbgeFatoGerador: '3205002',
     processoEmissao: '0',
     finalidadeEmissao: '1',
     indConsumidorFinal: '1',
@@ -82,9 +83,9 @@ let dest = {
         complemento: '',
         bairro: 'teste',
         municipio: 'testeee',
-        codMunicipio: '4303103',
-        cUf: '43',
-        uf: 'RS',
+        codMunicipio: '3205002',
+        cUf: '32',
+        uf: 'ES',
         cep: '11111111',
         telefone: '5111111111'
     }
@@ -159,7 +160,7 @@ let pagamento = {
       valor: valorTotalProdutos.toFixed(2),
       dadosCartao: {
         tipoIntegracao: '1',
-        cnpj: '99999999999999',
+        cnpj: '27997447000214',
         bandeira: '01',
         codAutorizacao: '1321231231'
       }
@@ -276,10 +277,10 @@ function testHashRespTec(){
     console.log(nfeProc.gerarHashCSRT('41180678393592000146558900000006041028190697', 'G8063VRTNDMO886SFNK5LDUDEI24XJ22YIPO'));
 }
 
-//testeAssinaturaXML();
-//testeConsultaStatusServico(empresa, '2', '65');
-//testeDesereliaze();
-//testeEmissaoNFCe();
-testeEmissaoNFCeContingenciaOffline(empresa);
-//testeQRcodeNFCe();
+// testeAssinaturaXML();
+// testeConsultaStatusServico(empresa, '2', '65');
+// testeDesereliaze();
+testeEmissaoNFCe();
+// testeEmissaoNFCeContingenciaOffline(empresa);
+// testeQRcodeNFCe();
 //testHashRespTec();
